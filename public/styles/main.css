@@ -1,0 +1,390 @@
+@font-face {
+    font-family: "BO CD Mono";
+    src: url("/fonts/BOCDMonoMedium.woff2") format("woff2"), url("/fonts/BOCDMonoMedium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BO CD Mono";
+    src: url("/fonts/BOCDMonoLight.woff2") format("woff2"), url("/fonts/BOCDMonoLight.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "EX Mils Med";
+    src: url("/fonts/EXMilsMed.woff2") format("woff2"), url("/fonts/EXMilsMed.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "EX PS Medium Neon";
+    src: url("/fonts/EXPSMediumNeon.woff2") format("woff2"), url("/fonts/EXPSMediumNeon.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "EX Mils Med Oblique";
+    src: url("/fonts/EXMilsMedOblique.woff2") format("woff2"), url("/fonts/EXMilsMedOblique.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("/images/deathFondo.png");
+    background-size: cover; /* Ajusta la imagen para cubrir todo el elemento */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+    overflow: hidden; /* Asegura que no haya barras de desplazamiento innecesarias */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    body {
+        background-image: none; /* Elimina la imagen de fondo */
+        background-color: #000000 !important; /* Establece el color de fondo */
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .scrollable-content {
+        height: 16vh;
+    }
+}
+
+@media (max-width: 1024px) {
+    .overlay {
+        position: fixed; /* Fija el contenedor al viewport */
+        top: 50%;
+        left: 50%;
+        height: 100vh;
+        transform: translate(-50%, -50%); /* Centra el contenedor */
+        width: 91%; /* Ajusta el ancho según tus necesidades */
+        background: rgba(255, 255, 255, 0.111); /* Fondo semi-transparente */
+        box-shadow: 0px 0px 30px 30px #000000da;
+        padding: 20px;
+        overflow-y: scroll;
+    }
+    .scrollable-content {
+        height: 35vh;
+    }
+}
+
+/* Estilos para el contenedor de los formularios y posts*/
+.overlay {
+    position: fixed; /* Fija el contenedor al viewport */
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    height: 90vh;
+    transform: translate(-50%, -50%); /* Centra el contenedor */
+    width: 91%; /* Ajusta el ancho según tus necesidades */
+    background: rgba(0, 0, 0, 0.848); /* Fondo semi-transparente */
+    box-shadow: 0px 0px 30px 30px #000000da;
+    padding: 20px;
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+/* estilo del logo */
+.logo {
+    width: 25%;
+}
+
+/* inicio de estilos para el boton de accion y confirmacion */
+.custom-form-btn {
+    width: 100%; /* Ocupa el 100% del ancho de la columna */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente (opcional) */
+    border-top: 1px solid rgba(255, 255, 255, 0.354); /* Borde blanco en la parte superior */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.354); /* Borde blanco en la parte inferior */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    font-family: "Rubik", sans-serif;
+}
+
+.custom-form-btn:hover {
+    background-color: #085b8a; /* Cambia el color de fondo al pasar el ratón */
+    border-top: 1px solid #085b8a; /* Borde blanco en la parte superior */
+    border-bottom: 1px solid #085b8a; /* Borde blanco en la parte inferior */
+}
+
+.btn-full {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor del formulario */
+}
+
+/* Asegura que el botón tenga un buen estilo dentro del formulario */
+.btn-primary {
+    background-color: transparent !important; /* Color de fondo del botón (ajusta según tu diseño) */
+    border-color: transparent !important; /* Color del borde del botón */
+    color: #fff; /* Color del texto del botón */
+    border-radius: 0; /* Elimina bordes redondeados si no los deseas */
+}
+
+.custom-form-btn div {
+    color: #c5e8e6;
+    margin: 0px;
+}
+
+.titleBtn {
+    font-size: 34px;
+    font-weight: lighter;
+}
+/* fin de estilos para el boton de accion y confirmacion */
+
+/*Inicio de estilos para el btoton de delete o cancelar*/
+.custom-form-btn-delCan {
+    width: 100%; /* Ocupa el 100% del ancho de la columna */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente (opcional) */
+    border-top: 1px solid rgba(255, 255, 255, 0.354); /* Borde blanco en la parte superior */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.354); /* Borde blanco en la parte inferior */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    font-family: "Rubik", sans-serif;
+}
+
+.custom-form-btn-delCan:hover {
+    background-color: #ff0000; /* Cambia el color de fondo al pasar el ratón */
+    border-top: 1px solid #ff0000; /* Borde blanco en la parte superior */
+    border-bottom: 1px solid #ff0000; /* Borde blanco en la parte inferior */
+}
+
+/* Asegura que el botón tenga un buen estilo dentro del formulario */
+.btn-danger {
+    background-color: transparent !important; /* Color de fondo del botón (ajusta según tu diseño) */
+    border-color: transparent !important; /* Color del borde del botón */
+    color: #fff; /* Color del texto del botón */
+    border-radius: 0; /* Elimina bordes redondeados si no los deseas */
+}
+
+.custom-form-btn-delCan div {
+    color: #c5e8e6;
+    margin: 0px;
+}
+
+/*Fin de estilos para el btoton de delete o cancelar*/
+
+.postTable {
+    height: 72vh;
+    font-family: "Rubik", sans-serif;
+}
+
+.table_component table {
+    border: 0px solid #000000;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    text-align: left;
+}
+
+.table_component th {
+    border: 0px solid #000000;
+    background-color: #24343c;
+    color: #c5e8e6;
+    padding: 5px;
+    font-size: 1.4 rem !important;
+    font-weight: lighter;
+}
+
+.table_component td {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 1.85rem;
+    font-weight: lighter;
+}
+
+/* Cambiar color de fondo al hacer hover sobre la fila */
+.table_component tr:hover {
+    background-color: #063d5c;
+}
+
+/*cuando se haya clickeado en la fila*/
+.selected {
+    background-color: #063d5c;
+}
+
+.content {
+    height: 72vh;
+}
+
+.postDescriptionCont {
+    height: 55vh !important;
+    background-color: #063d5c;
+    text-align: center;
+}
+
+.postDescription td {
+    padding: 0px !important;
+}
+
+.postDescription tr:hover {
+    background-color: transparent !important;
+}
+
+.postDescriptionCont img {
+    max-width: 70%;
+}
+
+.postDescriptionCont p {
+    text-align: start;
+    color: #c5e8e6;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    padding: 15px;
+}
+
+.datePost {
+    font-family: "BO CD Mono" !important;
+}
+
+.emptyPost {
+    display: flex;
+    height: 72vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyMessage {
+    width: 50%; /* Ocupa el 100% del ancho de la columna */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente (opcional) */
+    border-top: 1px solid rgba(255, 255, 255, 0.354); /* Borde blanco en la parte superior */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.354); /* Borde blanco en la parte inferior */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    font-family: "Rubik", sans-serif !important;
+    color: #c5e8e6;
+}
+
+.content2 {
+}
+
+.postDescriptionContImage {
+    height: 30vh !important;
+    background-color: #063d5c;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.postDescriptionContImage img {
+    width: 90%;
+}
+
+.scrollable-content {
+    display: block; /* Ajusta la altura según sea necesario */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+/* Estilos para el formulario de crear y actualizar */
+.custom-form {
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados si es necesario */
+}
+
+.custom-form .form-control {
+    background-color: rgba(255, 255, 255, 0.012); /* Fondo transparente para los campos de entrada */
+    color: #fff; /* Color del texto */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Estilo para el selector de categoría */
+.custom-form .form-select {
+    background-color: rgba(255, 255, 255, 0.012); /* Fondo transparente para los campos de entrada */
+    color: #fff; /* Color del texto */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Estilo de las opciones del selector */
+.custom-form .form-select option {
+    background-color: rgb(0, 0, 0); /* Fondo negro transparente para las opciones */
+    color: #fff; /* Color del texto */
+}
+
+/* Estilo del placeholder */
+.custom-form .form-control::placeholder {
+    color: #fff; /* Color del texto del placeholder */
+}
+
+/* Asegura que los campos no cambien de color al hacer clic o al recibir foco */
+.custom-form .form-control:focus,
+.custom-form .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.012); /* Mantiene el fondo transparente */
+    border-color: rgba(255, 255, 255, 0.5); /* Color del borde ajustable */
+    box-shadow: none; /* Elimina la sombra del campo */
+    color: #ffffff;
+}
+
+/* Estilo para el selector de fecha */
+.custom-form .form-control[type="date"] {
+    background-color: rgba(255, 255, 255, 0.012); /* Fondo transparente */
+    color: #fff; /* Color del texto */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Mantiene el texto del selector de fecha blanco cuando se selecciona */
+.custom-form .form-control[type="date"]::-webkit-inner-spin-button,
+.custom-form .form-control[type="date"]::-webkit-calendar-picker-indicator {
+    color: #fff; /* Color del texto del selector */
+}
+
+.custom-form .form-control[type="date"]:focus {
+    background-color: rgba(255, 255, 255, 0.012); /* Mantiene el fondo transparente */
+    border-color: rgba(255, 255, 255, 0.5); /* Color del borde ajustable */
+    box-shadow: none; /* Elimina la sombra del campo */
+}
+
+h1 {
+    font-family: "EX PS Medium Neon";
+    font-size: 5.5rem !important;
+    color: #95d1e9 !important;
+}
+
+.container2{
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    &-loader{
+        margin: 15px;
+        padding: 15px;
+        width: 200px;
+        height: 200px;
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.container-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    color: #fff;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}

@@ -145,13 +145,10 @@ dist/
 # Sapper
 __sapper__/
 
-# static
-static/
 
 # Gridsome
 src/.temp/
 src/.cache/
-public/
 
 # Nuxt.js
 .nuxt/

@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'BO CD Mono';
+    src: url('BOCDMonoMedium.woff2') format('woff2'),
+        url('BOCDMonoMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BO CD Mono';
+    src: url('BOCDMonoLight.woff2') format('woff2'),
+        url('BOCDMonoLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'EX Mils Med';
+    src: url('EXMilsMed.woff2') format('woff2'),
+        url('EXMilsMed.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'EX PS Medium Neon';
+    src: url('EXPSMediumNeon.woff2') format('woff2'),
+        url('EXPSMediumNeon.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'EX Mils Med Oblique';
+    src: url('EXMilsMedOblique.woff2') format('woff2'),
+        url('EXMilsMedOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
