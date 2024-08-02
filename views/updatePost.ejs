@@ -1,0 +1,166 @@
+<%- include('partials/header.ejs') %>
+
+<div class="row d-flex align-items-center align-content-center">
+    <div class="col-lg-5 col-md-12 col-sm-12 d-flex align-items-center">
+        <img src="/images/bridges.png" alt="logoBridges" class="logo me-3" />
+        <h1>Update Entry</h1>
+    </div>
+    <div class="col-lg-7 col-md-12 col-sm-12"></div>
+    <div class="content2 row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="table_component postDescription mt-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="postDescriptionContImage">
+                                    <img
+                                        src="/uploads/<%=locals.post.image%>"
+                                        alt="Current image"
+                                        class="m-4"
+                                    />
+                                </div>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="mt-3">
+                <form id="imageForm" class="custom-form-btn">
+                    
+                    <!-- Botón para seleccionar imagen -->
+                    <button
+                        type="button"
+                        id="changeImageButton"
+                        class="btn btn-primary btn-full"
+                    >
+                        <div class="titleBtn">Change image</div>
+                        <div>Pick a new illustration from your device</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12">
+            <!-- Contenedor para la tabla y el formulario -->
+            <div class="table_component postDescription mt-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Content</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- Formulario -->
+                                <div class="scrollable-content">
+                                    <form
+                                        action="/submitUpdatePost/<%= locals.post.id %>"
+                                        method="POST"
+                                        class="custom-form"
+                                        id="creationForm"
+                                        enctype="multipart/form-data"
+                                    >
+                                        <!-- Título -->
+                                        <div class="mb-3">
+                                            <label for="title" class="form-label"
+                                                >Title</label
+                                            >
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="title"
+                                                name="title"
+                                                placeholder="Enter the title"
+                                                value="<%= locals.post.title %>"
+                                                required
+                                            />
+                                        </div>
+
+                                        <!-- Categoría -->
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label"
+                                                >Category</label
+                                            >
+                                            <select
+                                                class="form-select"
+                                                id="category"
+                                                name="category"
+                                                required
+                                            >
+                                                <option value="" disabled selected>
+                                                    Select a category
+                                                </option>
+                                                <option value="theory" <% if (locals.post.category === 'theory') { %> selected <% } %>>Theory</option>
+                                                <option value="practice" <% if (locals.post.category === 'practice') { %> selected <% } %>>Practice</option>
+                                                <option value="research" <% if (locals.post.category === 'research') { %> selected <% } %>>Research</option>
+                                            </select>
+                                        </div>
+
+                                        <!-- Fecha -->
+                                        <div class="mb-3">
+                                            <label for="date" class="form-label"
+                                                >Date</label
+                                            >
+                                            <input
+                                                type="date"
+                                                class="form-control"
+                                                id="date"
+                                                name="date"
+                                                value="<%= locals.post.date %>"
+                                                required
+                                            />
+                                        </div>
+
+                                        <!-- Descripción -->
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label"
+                                                >Description</label
+                                            >
+                                            <textarea
+                                                class="form-control"
+                                                id="description"
+                                                name="description"
+                                                rows="4"
+                                                placeholder="Enter the description"
+                                                required
+                                            > <%= locals.post.description %>
+                                            </textarea>
+                                        </div>
+                                        <!--Input de selector de imagen oculto-->
+                                        <input
+                                            type="file"
+                                            id="imageInput"
+                                            name="image"
+                                            accept=".jpg, .jpeg, .png"
+                                            style="display: none;" 
+                                        />
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 mt-3">
+        <form class="custom-form-btn">
+            <button type="button" class="btn btn-primary btn-full" id="confirmCreation">
+                <div class="titleBtn">Confirm</div>
+                <div>Update this entry</div>
+            </button>
+        </form>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 mt-3">
+        <form action="/deletePost/<%= locals.post.id %>" method="GET" class="custom-form-btn-delCan">
+            <button type="submit" class="btn btn-danger btn-full">
+                <div class="titleBtn">Delete</div>
+                <div>Erase this entry</div>
+            </button>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

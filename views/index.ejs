@@ -1,0 +1,111 @@
+
+
+<%- include('partials/header.ejs') %>
+
+<div class="container2">
+    <!-- Death Stranding --> 
+    <div id="loadingContainer" class="container-loader">
+      <svg height="100" width="100">
+        <animate
+                 xlink:href="#ds-point-one"
+                 attributeName="fill"
+                 repeatCount="indefinite"
+                 values="#fff; #000; #000;"
+                 dur="2s"
+                 begin="0s"
+                 keyTimes="0; .5; 1"/>
+  
+        <animate
+                 xlink:href="#ds-point-two"
+                 attributeName="fill"
+                 repeatCount="indefinite"
+                 values="#fff; #000; #000;"
+                 dur="2s"
+                 begin="0.4s"
+                 keyTimes="0; .5; 1"/>
+  
+        <animate
+                 xlink:href="#ds-point-three"
+                 attributeName="fill"
+                 repeatCount="indefinite"
+                 values="#fff; #000; #000;"
+                 dur="2s"
+                 begin="0.8s"
+                 keyTimes="0; .5; 1"/>
+  
+        <animate
+                 xlink:href="#ds-point-four"
+                 attributeName="fill"
+                 repeatCount="indefinite"
+                 values="#fff; #000; #000;"
+                 dur="2s"
+                 begin="1.2s"
+                 keyTimes="0; .5; 1"/>
+  
+        <animate
+                 xlink:href="#ds-point-five"
+                 attributeName="fill"
+                 repeatCount="indefinite"
+                 values="#fff; #000; #000;"
+                 dur="2s"
+                 begin="1.6s"
+                 keyTimes="0; .5; 1"/>
+  
+        <polygon 
+                 id="ds-point-one"
+                 points="50,0 35,30 50,50 65,30" 
+                 style="fill:black;" />
+        <polygon 
+                 id="ds-point-two"
+                 points="50,0 35,30 50,50 65,30" 
+                 style="fill:black;"
+                 transform="rotate(73 50 50)" />
+        <polygon 
+                 id="ds-point-three"
+                 points="50,0 35,30 50,50 65,30" 
+                 style="fill:black;"
+                 transform="rotate(145 50 50)" />
+        <polygon 
+                 id="ds-point-four"
+                 points="50,0 35,30 50,50 65,30" 
+                 style="fill:black;"
+                 transform="rotate(-145 50 50)" />
+        <polygon 
+                 id="ds-point-five"
+                 points="50,0 35,30 50,50 65,30" 
+                 style="fill:black;"
+                 transform="rotate(-73 50 50)" />
+  
+      </svg>
+    </div>
+</div>
+
+<%# si el array posts esta vacio, ejecutar el require de empty.ejs, en caso contrario el entries.ejs %>
+
+<div id="contentContainer" class="hidden" data-first-load="<%= firstLoad %>">    
+    <% if (locals.posts.length === 0) { %>
+        <%- include('empty.ejs') %>
+    <% } else { %>
+        <%- include('entries.ejs') %>
+    <% } %>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Oculta el contenedor de carga y muestra el contenido después de 5 segundos
+        setTimeout(function() {
+            document.getElementById('loadingContainer').classList.add('hidden');
+            document.getElementById('contentContainer').classList.remove('hidden');
+            document.body.style.overflow = 'auto'; // Muestra el contenido
+        }, 2000); // 5000 milisegundos = 5 segundos
+        // Reproduce el sonido si es el primer cargado
+        // Reproduce el sonido si es el primer cargado
+        var contentContainer = document.getElementById('contentContainer');
+        if (contentContainer && contentContainer.getAttribute('data-first-load') === 'true') {
+            var audio = new Audio('/sounds/DSDeadman.mp3');
+            audio.play();
+        }
+    });
+</script>
+
+<%- include('partials/footer.ejs') %>

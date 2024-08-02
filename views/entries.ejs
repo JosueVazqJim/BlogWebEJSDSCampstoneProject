@@ -1,0 +1,74 @@
+<div class="row d-flex align-items-center align-content-center">
+    <div class="col-lg-5 col-md-12 col-sm-12 d-flex align-items-center">
+        <img src="/images/bridges.png" alt="logoBridges" class="logo me-3" />
+        <h1>Entries Blog</h1>
+    </div>
+    <div class="col-lg-7 col-md-12 col-sm-12">
+        <form action="/createPost" method="GET" class="custom-form-btn">
+            <button type="submit" class="btn btn-primary btn-full">
+                <div class="titleBtn">Create post</div>
+                <div>Add a new blog entry</div>
+            </button>
+        </form>
+    </div>
+    <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="overflow-y-scroll postTable mt-4">
+            <div class="table-responsive table_component">
+                <table id="postsTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% posts.forEach(post => { %>
+                        <tr 
+                            <%# se le va añadiendo la informacion completa a cada fila pero aun
+                            no se muestra %>
+                            data-id= "<%= post.id %>"
+                            data-description="<%= post.description %>" 
+                            data-image="/uploads/<%= post.image %>"
+                            class="post-row"
+                        > 
+                            <td scope="row"><%= post.title %></td>
+                            <td><%= post.category %></td>
+                            <td class="datePost"><%= post.date %></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+        <div class="content">
+            <div class="table-responsive table_component postDescription mt-4">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                        </tr>
+                        <tr id="descriptionRow">
+                            <td>
+                                <div class="overflow-y-scroll postDescriptionCont">
+                                    <img id="descriptionImage" src="/images/empty.png" alt="" class="m-4" />
+                                    <p id="descriptionText" class="mx-4">Still do not select a post</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="mt-3">
+                <form action="/" method="GET" class="custom-form-btn" id="updateBtn">
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <div class="titleBtn">Update</div>
+                        <div>Edit current post</div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
